@@ -76,10 +76,10 @@ const Beat1Unboxing: React.FC<BeatProps> = ({ onNext }) => {
               />
             </div>
             <div className="inline-block px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300 text-[11px] font-semibold mb-1">
-              Khoảnh khắc #1
+              Khoảnh khắc #1: Đón Giáng Sinh 🎄
             </div>
             <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-200 font-medium px-1">
-              "Tấm này nhìn hiền khô, khác hẳn lúc nhắn tin bắt bẻ anh 😉"
+              "Bờm tuần lộc đỏ, áo blazer kẻ bên cây thông Noel... Nhìn tấm này hiền khô dịu dàng, khác hẳn những lúc nhắn tin bắt bẻ anh 😉"
             </p>
           </div>
 

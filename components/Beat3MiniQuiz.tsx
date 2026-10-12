@@ -62,7 +62,7 @@ const Beat3MiniQuiz: React.FC<BeatProps> = ({ onNext, onBack }) => {
               <div className="polaroid-frame rounded-xl sm:rounded-2xl text-center transform sm:-rotate-1 hover:rotate-0 p-2.5 sm:p-3.5">
                 <div className="washi-tape !w-12 sm:!w-16" />
                 <div className="w-full aspect-[4/5] rounded-lg sm:rounded-xl overflow-hidden bg-stone-100 dark:bg-stone-800 mb-2 relative flex items-center justify-center">
-                  <span className="text-2xl select-none">😊</span>
+                  <span className="text-2xl select-none">🌊</span>
                   <img
                     src="/images/1791793370229_2068672602398295483_5900182264671411439_efd2ec05a90f66cae482122334369e5b.jpg"
                     alt="Khoảnh khắc 3"
@@ -71,10 +71,10 @@ const Beat3MiniQuiz: React.FC<BeatProps> = ({ onNext, onBack }) => {
                   />
                 </div>
                 <div className="inline-block px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300 text-[10px] sm:text-[11px] font-semibold mb-1">
-                  Khoảnh khắc #3
+                  Khoảnh khắc #3: Nàng Thơ Bên Biển 🌊
                 </div>
                 <p className="text-[11px] sm:text-xs text-stone-700 dark:text-stone-200 font-medium leading-snug">
-                  "Nụ cười tươi tắn, nhiều năng lượng tích cực 😊"
+                  "Áo yếm trắng lưng trần, hoa sứ cài tóc đón sóng biển... Góc chụp từ phía sau mà vẫn toát trọn nét thơ mộng 🌸"
                 </p>
               </div>
 
@@ -82,7 +82,7 @@ const Beat3MiniQuiz: React.FC<BeatProps> = ({ onNext, onBack }) => {
               <div className="polaroid-frame rounded-xl sm:rounded-2xl text-center transform sm:rotate-1 hover:rotate-0 p-2.5 sm:p-3.5">
                 <div className="washi-tape !w-12 sm:!w-16 !bg-violet-400/30 !border-violet-500/40" />
                 <div className="w-full aspect-[4/5] rounded-lg sm:rounded-xl overflow-hidden bg-stone-100 dark:bg-stone-800 mb-2 relative flex items-center justify-center">
-                  <span className="text-2xl select-none">💫</span>
+                  <span className="text-2xl select-none">🎓</span>
                   <img
                     src="/images/1791793370412_2068672602398295483_5900182264671411439_9b0b7219c1d8d384070231e4c3f2c332.jpg"
                     alt="Khoảnh khắc 4"
@@ -91,10 +91,10 @@ const Beat3MiniQuiz: React.FC<BeatProps> = ({ onNext, onBack }) => {
                   />
                 </div>
                 <div className="inline-block px-2 py-0.5 rounded-full bg-violet-100 dark:bg-violet-950/80 text-violet-600 dark:text-violet-300 text-[10px] sm:text-[11px] font-semibold mb-1">
-                  Khoảnh khắc #4
+                  Khoảnh khắc #4: Ngày Lễ Cử Nhân 🎓
                 </div>
                 <p className="text-[11px] sm:text-xs text-stone-700 dark:text-stone-200 font-medium leading-snug">
-                  "Thần thái cô gái bận rộn nhưng vẫn nhớ rep tin nhắn 👏"
+                  "Mũ cử nhân, khăn tốt nghiệp cùng bó hoa rạng rỡ. Vừa thông minh giỏi giang lại vừa xinh đẹp thế này thì 10/10 điểm 👏"
                 </p>
               </div>
             </div>

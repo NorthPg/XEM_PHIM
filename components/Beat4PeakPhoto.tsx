@@ -56,10 +56,10 @@ const Beat4PeakPhoto: React.FC<BeatProps> = ({ onNext, onBack }) => {
                 />
               </div>
               <div className="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-[11px] font-bold mb-1 shadow-xs">
-                ⭐ Top Favorite Moment
+                ⭐ Top Favorite: Nàng Thơ Váy Trắng 🤍
               </div>
               <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-200 font-medium px-1">
-                "Chốt lại là ảnh nào em cũng xinh xắn, nhưng nghe bảo gặp ngoài đời còn cuốn hút hơn nhiều..."
+                "Váy trắng xếp tầng bồng bềnh bên bức tường lá xanh và mái ngói cổ. Tấm này visual đỉnh chóp như poster phim điện ảnh, mà nghe bảo gặp ngoài đời còn cuốn hút hơn nhiều..."
               </p>
             </div>
 

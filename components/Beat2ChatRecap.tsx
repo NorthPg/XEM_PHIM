@@ -60,10 +60,10 @@ const Beat2ChatRecap: React.FC<BeatProps> = ({ onNext, onBack }) => {
                 />
               </div>
               <div className="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-[11px] font-semibold mb-1">
-                Khoảnh khắc #2
+                Khoảnh khắc #2: Phố Đêm & Điện Thoại 📱
               </div>
               <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-200 font-medium px-1">
-                "Phong cách rất có gu, 10 điểm thanh lịch. Nhìn là thấy năng lượng tích cực rồi ✨"
+                "Áo da cá tính dạo phố đêm, tay cầm điện thoại chăm chú mỉm cười... Chắc là lúc này đang check xem ai rep tin nhắn đúng không? 10 điểm thần thái ✨"
               </p>
             </div>
 
