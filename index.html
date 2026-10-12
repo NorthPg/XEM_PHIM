@@ -1,82 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Romantic Movie Invite</title>
+    <title>Kỷ Niệm 20.10 & Lời Mời Xem Phim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "primary": "#ef3976",
-              "background-light": "#fcf8f9",
-              "background-dark": "#221016",
+              "primary": "#f43f5e",
+              "primary-glow": "#fb7185",
+              "burgundy-canvas": "#120a0e",
+              "burgundy-card": "#1c1017",
+              "light-canvas": "#fffafb",
+              "gold": "#f59e0b",
+              "gold-light": "#fef3c7"
             },
             fontFamily: {
-              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+              "sans": ["Plus Jakarta Sans", "sans-serif"],
+              "serif": ["Playfair Display", "serif"]
             },
             borderRadius: {
               "DEFAULT": "1rem",
-              "lg": "2rem",
-              "xl": "3rem",
-              "full": "9999px"
-            },
-          },
-        },
+              "xl": "1.5rem",
+              "2xl": "2rem",
+              "3xl": "2.5rem"
+            }
+          }
+        }
       }
     </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
       }
-      .material-symbols-outlined.fill-1 {
-        font-variation-settings: 'FILL' 1;
-      }
-      @keyframes custom-pulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 57, 118, 0.4); }
-        50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(239, 57, 118, 0); }
-      }
-      .animate-soft-pulse {
-        animation: custom-pulse 3s infinite ease-in-out;
-      }
-      .shake-on-hover:active {
-        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-      }
-      @keyframes shake {
-        10%, 90% { transform: translate3d(-1px, 0, 0); }
-        20%, 80% { transform: translate3d(2px, 0, 0); }
-        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-        40%, 60% { transform: translate3d(4px, 0, 0); }
-      }
-      .step-enter {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      .step-active {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body class="bg-background-light dark:bg-background-dark font-display transition-colors duration-300 antialiased">
+    }
+    </script>
+  </head>
+  <body class="bg-light-canvas dark:bg-burgundy-canvas font-sans text-stone-800 dark:text-stone-100 transition-colors duration-500 antialiased selection:bg-rose-500 selection:text-white">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
