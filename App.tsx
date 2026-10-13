@@ -15,6 +15,7 @@ import Screen4Fireflies from './components/screens/Screen4Fireflies';
 import Screen5Puzzle from './components/screens/Screen5Puzzle';
 import Screen6GiftBox from './components/screens/Screen6GiftBox';
 import Screen7Letter from './components/screens/Screen7Letter';
+import SecretCinemaScreen from './components/screens/SecretCinemaScreen';
 import LyTuanHeart from './components/LyTuanHeart';
 
 export const App: React.FC = () => {
@@ -28,9 +29,10 @@ export const App: React.FC = () => {
   const [isPuzzleCompleted, setIsPuzzleCompleted] = useState<boolean>(false);
   const [selectedGiftBoxId, setSelectedGiftBoxId] = useState<string | null>(null);
 
-  // Common UI State: Lightbox, Music & Secret Heart
+  // Common UI State: Lightbox, Music & Secret Easter Eggs
   const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
+  const [isSecretCinemaOpen, setIsSecretCinemaOpen] = useState<boolean>(false);
   const [isSecretHeartOpen, setIsSecretHeartOpen] = useState<boolean>(false);
 
   // Step advancement logic
@@ -67,6 +69,7 @@ export const App: React.FC = () => {
     setIsFirefliesCompleted(false);
     setIsPuzzleCompleted(false);
     setSelectedGiftBoxId(null);
+    setIsSecretCinemaOpen(false);
     setIsSecretHeartOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -187,12 +190,26 @@ export const App: React.FC = () => {
           <Screen7Letter
             onRestart={restartGarden}
             onOpenLightbox={openLightbox}
+            onOpenSecretCinema={() => setIsSecretCinemaOpen(true)}
             onOpenSecretHeart={() => setIsSecretHeartOpen(true)}
           />
         )}
       </main>
 
-      {/* Secret Easter Egg: Ly Tuan Beating Heart */}
+      {/* Secret Easter Egg 1: Lofi Cinema & Acoustic Guitar Singing */}
+      {isSecretCinemaOpen && (
+        <SecretCinemaScreen
+          onBack={() => setIsSecretCinemaOpen(false)}
+          onProceedToHeart={() => {
+            setIsSecretCinemaOpen(false);
+            setIsSecretHeartOpen(true);
+          }}
+          onPauseBgm={() => setIsAudioPlaying(false)}
+          onResumeBgm={() => setIsAudioPlaying(true)}
+        />
+      )}
+
+      {/* Secret Easter Egg 2: Ly Tuan Beating Heart */}
       {isSecretHeartOpen && (
         <LyTuanHeart onBack={() => setIsSecretHeartOpen(false)} />
       )}

@@ -6,12 +6,14 @@ import PrimaryButton from '../common/PrimaryButton';
 interface Screen7LetterProps {
   onRestart: () => void;
   onOpenLightbox?: (index: number) => void;
+  onOpenSecretCinema?: () => void;
   onOpenSecretHeart?: () => void;
 }
 
 export const Screen7Letter: React.FC<Screen7LetterProps> = ({
   onRestart,
   onOpenLightbox,
+  onOpenSecretCinema,
   onOpenSecretHeart,
 }) => {
   const [isLetterOpen, setIsLetterOpen] = useState<boolean>(true);
@@ -136,24 +138,24 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
         </div>
       </div>
 
-      {/* SECRET EASTER EGG: TRÁI TIM LÝ TUÂN */}
-      {onOpenSecretHeart && (
+      {/* SECRET EASTER EGG: RẠP CHIẾU PHIM & ACOUSTIC (BEFORE LY TUAN HEART) */}
+      {(onOpenSecretCinema || onOpenSecretHeart) && (
         <div className="w-full max-w-md mx-auto p-5 rounded-3xl bg-gradient-to-r from-[#2A1622] via-[#3B1C2E] to-[#20101A] border-2 border-[#C9829B]/40 shadow-xl flex flex-col items-center text-center animate-breathing my-4">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#FFE17D] tracking-wider uppercase mb-1">
-            <span>✨</span> MÓN QUÀ BÍ MẬT ẨN GIẤU <span>✨</span>
+            <span>✨</span> MÓN QUÀ BÍ MẬT DÀNH RIÊNG CHO EM <span>✨</span>
           </div>
           <h4 className="font-serif text-lg font-bold text-white mt-1">
-            Góc Trái Tim Pha Lê Ma Thuật
+            Góc Chiếu Phim & Bản Acoustic Bí Mật
           </h4>
           <p className="text-xs text-rose-200/80 mt-1 max-w-xs leading-relaxed">
-            Một hiệu ứng nhịp đập ánh sáng được dệt riêng từ những dòng code gửi đến em...
+            Một tấm vé đặc biệt đưa em đến rạp phim Lofi ấm cúng cùng giai điệu tiếng đàn mộc mạc...
           </p>
           <button
-            onClick={onOpenSecretHeart}
+            onClick={onOpenSecretCinema || onOpenSecretHeart}
             className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#C9829B] to-rose-500 text-white font-medium text-sm shadow-lg shadow-rose-900/50 hover:brightness-110 active:scale-95 transition-all flex items-center gap-2 cursor-pointer border border-white/20"
           >
-            <span>Khám phá trang bí mật</span>
-            <span className="text-base animate-pulse">💖</span>
+            <span>Nhận vé vào rạp phim bí mật</span>
+            <span className="text-base animate-pulse">🎬🎸</span>
           </button>
         </div>
       )}
