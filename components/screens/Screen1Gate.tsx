@@ -2,9 +2,25 @@ import React from 'react';
 import { BaseScreenProps } from '../../types/garden';
 import PrimaryButton from '../common/PrimaryButton';
 
-export const Screen1Gate: React.FC<BaseScreenProps> = ({ onNext }) => {
+interface Screen1GateProps extends BaseScreenProps {
+  isAudioPlaying?: boolean;
+  onStartAudio?: () => void;
+}
+
+export const Screen1Gate: React.FC<Screen1GateProps> = ({
+  onNext,
+  isAudioPlaying,
+  onStartAudio,
+}) => {
   return (
-    <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-8 animate-fade-in">
+    <div
+      onClick={() => {
+        if (!isAudioPlaying && onStartAudio) {
+          onStartAudio();
+        }
+      }}
+      className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-8 animate-fade-in"
+    >
       {/* Decorative Gate Badge */}
       <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F5DDE5]/60 border border-[#C9829B]/30 text-xs font-semibold text-[#C9829B] tracking-wider uppercase mb-5">
         <span>✨</span> Chào mừng em đến với
@@ -19,7 +35,9 @@ export const Screen1Gate: React.FC<BaseScreenProps> = ({ onNext }) => {
       </p>
 
       {/* Fairytale Arched Gate Illustration Card */}
-      <div className="relative my-7 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 p-2 bg-gradient-to-b from-[#FFF9F1] via-[#F5DDE5]/40 to-[#FFF9F1] flex flex-col items-center justify-center">
+      <div
+        className="relative my-6 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 p-2 bg-gradient-to-b from-[#FFF9F1] via-[#F5DDE5]/40 to-[#FFF9F1] flex flex-col items-center justify-center transition-transform active:scale-[0.99]"
+      >
         {/* Arch Frame with Vines & Roses */}
         <div className="relative w-full h-full rounded-2xl border-2 border-[#B7C9AE]/60 flex flex-col items-center justify-center p-6 bg-white/40 backdrop-blur-xs">
           {/* Climbing Roses Arch Top */}
@@ -51,6 +69,32 @@ export const Screen1Gate: React.FC<BaseScreenProps> = ({ onNext }) => {
           </div>
         </div>
       </div>
+
+      {/* Touch to play music indicator badge */}
+      {!isAudioPlaying ? (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onStartAudio) onStartAudio();
+          }}
+          className="flex items-center justify-center gap-2 text-xs font-medium text-[#C9829B] bg-[#F5DDE5]/70 hover:bg-[#F5DDE5] border border-[#C9829B]/35 px-4 py-2 rounded-full animate-pulse my-3 cursor-pointer transition-all shadow-sm active:scale-95"
+        >
+          <span className="text-sm">🎵</span>
+          <span>Chạm vào màn hình để nghe giai điệu</span>
+          <span className="text-[11px]">✨</span>
+        </button>
+      ) : (
+        <div className="flex items-center justify-center gap-2 text-xs font-medium text-[#51433F] bg-[#FFF9F1] border border-[#C9829B]/30 px-4 py-2 rounded-full my-3 shadow-sm animate-fade-in">
+          <span className="animate-spin text-sm">🌸</span>
+          <span className="font-serif italic text-[#C9829B]">Giai điệu lãng mạn đang phát...</span>
+          <span className="flex items-center gap-0.5 ml-1">
+            <span className="w-0.5 h-2 bg-[#C9829B] animate-pulse" />
+            <span className="w-0.5 h-3.5 bg-[#C9829B] animate-pulse delay-75" />
+            <span className="w-0.5 h-1.5 bg-[#C9829B] animate-pulse delay-150" />
+          </span>
+        </div>
+      )}
 
       {/* Description copy */}
       <div className="max-w-md mx-auto space-y-2 mb-8">

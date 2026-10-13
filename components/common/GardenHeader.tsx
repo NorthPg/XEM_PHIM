@@ -8,6 +8,7 @@ interface GardenHeaderProps {
   onGoToStep?: (step: GardenScreenStep) => void;
   isAudioPlaying: boolean;
   onToggleAudio: () => void;
+  onStartAudio?: () => void;
   onRestart?: () => void;
 }
 
@@ -27,6 +28,7 @@ export const GardenHeader: React.FC<GardenHeaderProps> = ({
   onGoToStep,
   isAudioPlaying,
   onToggleAudio,
+  onStartAudio,
   onRestart,
 }) => {
   return (
@@ -77,7 +79,12 @@ export const GardenHeader: React.FC<GardenHeaderProps> = ({
 
         {/* Audio Controller */}
         <div className="flex items-center">
-          <AudioPlayer isPlaying={isAudioPlaying} onToggle={onToggleAudio} />
+          <AudioPlayer
+            isPlaying={isAudioPlaying}
+            onToggle={onToggleAudio}
+            onStartAudio={onStartAudio}
+            currentStep={currentStep}
+          />
         </div>
       </div>
     </header>

@@ -92,7 +92,5 @@ export const FINAL_LETTER_CONTENT = {
   signature: "— From someone who wishes you the best —",
 };
 
-export const AUDIO_TRACK_URL = encodeURI(
-  "/mp3/Vòng Tuần Hoàn Của Tình Yêu _ 恋爱循环 (Chiếc Bật Lửa Và Váy Công Chúa Ost).mp3"
-);
+export const AUDIO_TRACK_URL = "/mp3/bgm.mp3";
 export const AUDIO_TRACK_NAME = "Vòng Tuần Hoàn Của Tình Yêu • 恋爱循环";

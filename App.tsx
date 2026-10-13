@@ -130,13 +130,18 @@ export const App: React.FC = () => {
         onGoToStep={goToStep}
         isAudioPlaying={isAudioPlaying}
         onToggleAudio={toggleAudio}
+        onStartAudio={() => setIsAudioPlaying(true)}
         onRestart={restartGarden}
       />
 
       {/* Main Content Area: 7 Screens */}
       <main className="flex-1 flex flex-col items-center justify-center py-6 px-3 sm:px-4 max-w-4xl mx-auto w-full">
         {currentStep === 1 && (
-          <Screen1Gate onNext={nextStep} />
+          <Screen1Gate
+            onNext={nextStep}
+            isAudioPlaying={isAudioPlaying}
+            onStartAudio={() => setIsAudioPlaying(true)}
+          />
         )}
 
         {currentStep === 2 && (

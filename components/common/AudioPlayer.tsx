@@ -4,12 +4,20 @@ import { AUDIO_TRACK_URL, AUDIO_TRACK_NAME } from '../../constants/gardenData';
 interface AudioPlayerProps {
   isPlaying: boolean;
   onToggle: () => void;
+  onStartAudio?: () => void;
+  currentStep?: number;
 }
 
-export const AudioPlayer: React.FC<AudioPlayerProps> = ({ isPlaying, onToggle }) => {
+export const AudioPlayer: React.FC<AudioPlayerProps> = ({
+  isPlaying,
+  onToggle,
+  onStartAudio,
+  currentStep = 1,
+}) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [loadError, setLoadError] = useState(false);
 
+  // Sync isPlaying state with audio element
   useEffect(() => {
     if (!audioRef.current) return;
     
@@ -25,8 +33,42 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({ isPlaying, onToggle })
     }
   }, [isPlaying]);
 
+  // Mobile first touch auto-play listener when on Screen 1
+  useEffect(() => {
+    // Only listen if audio is not already playing and we are on Screen 1
+    if (isPlaying || currentStep !== 1) return;
+
+    const handleFirstTouch = () => {
+      if (audioRef.current && !isPlaying) {
+        // Crucial for iOS/Android: play() must be triggered inside the synchronous user gesture callback
+        audioRef.current.play().then(() => {
+          if (onStartAudio) {
+            onStartAudio();
+          } else {
+            onToggle();
+          }
+        }).catch((err) => {
+          console.warn('First touch autoplay failed:', err);
+        });
+      }
+    };
+
+    // Attach to window and document to catch any touch/tap on mobile
+    window.addEventListener('touchstart', handleFirstTouch, { once: true, passive: true });
+    window.addEventListener('touchend', handleFirstTouch, { once: true, passive: true });
+    window.addEventListener('pointerdown', handleFirstTouch, { once: true, passive: true });
+    window.addEventListener('click', handleFirstTouch, { once: true });
+
+    return () => {
+      window.removeEventListener('touchstart', handleFirstTouch);
+      window.removeEventListener('touchend', handleFirstTouch);
+      window.removeEventListener('pointerdown', handleFirstTouch);
+      window.removeEventListener('click', handleFirstTouch);
+    };
+  }, [isPlaying, currentStep, onStartAudio, onToggle]);
+
   const handleAudioError = () => {
-    // If original unicode url fails on specific browser engine, try normalized bgm.mp3
+    // If primary url fails, try normalized bgm.mp3 fallback
     if (audioRef.current && audioRef.current.src !== window.location.origin + '/mp3/bgm.mp3') {
       audioRef.current.src = '/mp3/bgm.mp3';
       if (isPlaying) {
