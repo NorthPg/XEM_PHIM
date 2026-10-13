@@ -6,6 +6,7 @@ interface LightboxModalProps {
   onClose: () => void;
   onPrev?: () => void;
   onNext?: () => void;
+  allowNavigation?: boolean;
 }
 
 export const LightboxModal: React.FC<LightboxModalProps> = ({
@@ -13,14 +14,15 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   onClose,
   onPrev,
   onNext,
+  allowNavigation = true,
 }) => {
   useEffect(() => {
     if (photoIndex === null) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft' && onPrev) onPrev();
-      if (e.key === 'ArrowRight' && onNext) onNext();
+      if (allowNavigation && e.key === 'ArrowLeft' && onPrev) onPrev();
+      if (allowNavigation && e.key === 'ArrowRight' && onNext) onNext();
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -31,7 +33,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = originalOverflow;
     };
-  }, [photoIndex, onClose, onPrev, onNext]);
+  }, [photoIndex, onClose, onPrev, onNext, allowNavigation]);
 
   if (photoIndex === null) return null;
 
@@ -90,26 +92,34 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           </p>
         </div>
 
-        {/* Navigation arrows if multiple */}
-        <div className="w-full flex justify-between items-center mt-3 pt-2 border-t border-[#C9829B]/15 text-xs text-[#51433F]/60">
-          {onPrev ? (
-            <button
-              onClick={onPrev}
-              className="px-3 py-1 rounded-full bg-[#F5DDE5]/40 hover:bg-[#F5DDE5] text-[#51433F] transition-all"
-            >
-              ← Ảnh trước
-            </button>
-          ) : <span />}
-          <span>{photoIndex + 1} / {GARDEN_PHOTOS.length}</span>
-          {onNext ? (
-            <button
-              onClick={onNext}
-              className="px-3 py-1 rounded-full bg-[#F5DDE5]/40 hover:bg-[#F5DDE5] text-[#51433F] transition-all"
-            >
-              Ảnh tiếp →
-            </button>
-          ) : <span />}
-        </div>
+        {/* Navigation arrows if multiple / allowed */}
+        {allowNavigation && (onPrev || onNext) ? (
+          <div className="w-full flex justify-between items-center mt-3 pt-2 border-t border-[#C9829B]/15 text-xs text-[#51433F]/60">
+            {onPrev ? (
+              <button
+                onClick={onPrev}
+                className="px-3 py-1 rounded-full bg-[#F5DDE5]/40 hover:bg-[#F5DDE5] text-[#51433F] transition-all cursor-pointer"
+              >
+                ← Ảnh trước
+              </button>
+            ) : <span />}
+            <span className="font-medium text-[#C9829B]">
+              {photoIndex + 1} / {GARDEN_PHOTOS.length}
+            </span>
+            {onNext ? (
+              <button
+                onClick={onNext}
+                className="px-3 py-1 rounded-full bg-[#F5DDE5]/40 hover:bg-[#F5DDE5] text-[#51433F] transition-all cursor-pointer"
+              >
+                Ảnh tiếp →
+              </button>
+            ) : <span />}
+          </div>
+        ) : (
+          <div className="w-full flex justify-center items-center mt-3 pt-2 border-t border-[#C9829B]/15 text-[11px] text-[#51433F]/50">
+            <span>Bấm ✕ hoặc chạm bên ngoài để đóng</span>
+          </div>
+        )}
       </div>
     </div>
   );

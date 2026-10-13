@@ -219,12 +219,13 @@ export const App: React.FC = () => {
         <LyTuanHeart onBack={() => setIsSecretHeartOpen(false)} />
       )}
 
-      {/* Fullscreen Photo Lightbox Modal */}
+      {/* Fullscreen Photo Lightbox Modal (Only allow browsing between photos on Screen 7 Album) */}
       <LightboxModal
         photoIndex={activeLightboxIndex}
         onClose={closeLightbox}
-        onNext={nextLightboxPhoto}
-        onPrev={prevLightboxPhoto}
+        onNext={currentStep === 7 ? nextLightboxPhoto : undefined}
+        onPrev={currentStep === 7 ? prevLightboxPhoto : undefined}
+        allowNavigation={currentStep === 7}
       />
 
       {/* Footer */}
