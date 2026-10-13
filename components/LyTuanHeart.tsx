@@ -288,9 +288,6 @@ const LyTuanHeart: React.FC<LyTuanHeartProps> = ({ onBack }) => {
           showText ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
-        <span className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold text-rose-300/80 mb-1.5 sm:mb-2 drop-shadow">
-          ★ GÓC BÍ MẬT • TRÁI TIM LÝ TUÂN ★
-        </span>
         <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_0_25px_rgba(244,63,94,0.6)] mb-2">
           Happy 20.10 🌸
         </h1>
