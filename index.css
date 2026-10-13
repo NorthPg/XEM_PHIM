@@ -1,50 +1,43 @@
 :root {
-  --primary: #f43f5e;
-  --primary-glow: #fb7185;
-  --gold: #f59e0b;
+  --color-cream-bg: #FFF9F1;
+  --color-blush-pink: #F5DDE5;
+  --color-dusty-rose: #C9829B;
+  --color-sage-green: #B7C9AE;
+  --color-muted-brown: #51433F;
+  --color-gold-firefly: #FFE17D;
+  --color-pale-lavender: #E8DEF8;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #FFF9F1;
+  color: #51433F;
   overflow-x: hidden;
-  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-/* Glassmorphism Panels */
+/* Glassmorphism Frosted Panel */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(244, 63, 94, 0.12);
-  box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.08), 0 0 1px 1px rgba(255, 255, 255, 0.6) inset;
-}
-
-.dark .glass-panel {
-  background: rgba(28, 16, 23, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(244, 63, 94, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 130, 155, 0.2);
+  box-shadow: 0 16px 36px -10px rgba(201, 130, 155, 0.12), 0 0 1px 1px rgba(255, 255, 255, 0.7) inset;
 }
 
 /* Polaroid Card Frame */
 .polaroid-frame {
   background: #ffffff;
-  padding: 14px 14px 22px 14px;
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.06);
+  padding: 14px 14px 24px 14px;
+  box-shadow: 0 16px 36px -8px rgba(81, 67, 63, 0.15), 0 4px 12px rgba(81, 67, 63, 0.05);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-}
-
-.dark .polaroid-frame {
-  background: #25161f;
-  border: 1px solid rgba(244, 63, 94, 0.25);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
 }
 
 .polaroid-frame:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 25px 50px -10px rgba(244, 63, 94, 0.25);
+  transform: translateY(-4px) rotate(0.5deg);
+  box-shadow: 0 22px 42px -10px rgba(201, 130, 155, 0.25);
 }
 
 /* Washi Tape Accent */
@@ -55,107 +48,138 @@ body {
   transform: translateX(-50%) rotate(-1.5deg);
   width: 90px;
   height: 24px;
-  background: rgba(251, 113, 133, 0.3);
+  background: rgba(183, 201, 174, 0.65);
   backdrop-filter: blur(4px);
-  border-left: 2px dashed rgba(244, 63, 94, 0.4);
-  border-right: 2px dashed rgba(244, 63, 94, 0.4);
+  border-left: 2px dashed rgba(81, 67, 63, 0.2);
+  border-right: 2px dashed rgba(81, 67, 63, 0.2);
   z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Cinema VIP Ticket with Scalloped Edges */
-.cinema-ticket {
-  position: relative;
-  background: linear-gradient(135deg, #ffffff 0%, #fff9fa 100%);
-  border: 2px dashed #f43f5e;
-  border-radius: 1.5rem;
+/* Floating Petals Container & Animation */
+.floating-petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
   overflow: hidden;
 }
 
-.dark .cinema-ticket {
-  background: linear-gradient(135deg, #25161f 0%, #1c1017 100%);
-  border: 2px dashed rgba(244, 63, 94, 0.5);
-}
-
-/* Scalloped notches on left and right */
-.ticket-notch-left,
-.ticket-notch-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  z-index: 20;
-}
-
-.ticket-notch-left {
-  left: -14px;
-  background: #fffafb;
-}
-
-.dark .ticket-notch-left {
-  background: #120a0e;
-}
-
-.ticket-notch-right {
-  right: -14px;
-  background: #fffafb;
-}
-
-.dark .ticket-notch-right {
-  background: #120a0e;
-}
-
-/* Gold Foil Shimmer */
-.gold-shimmer {
-  background: linear-gradient(90deg, #f59e0b 0%, #fde68a 50%, #f59e0b 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 4s linear infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(80px, 110vh, 0) rotate(360deg);
+    opacity: 0;
   }
 }
 
-/* Ambient glow blobs */
-.ambient-glow {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: -10;
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
+.falling-petal {
+  position: absolute;
+  top: -40px;
+  will-change: transform, opacity;
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-/* Confetti particles */
-.confetti {
-  position: fixed;
-  width: 9px;
-  height: 9px;
-  top: -10px;
-  border-radius: 2px;
-  animation: fall 3s ease-in forwards;
-  z-index: 9999;
-  pointer-events: none;
+/* Card 3D Flip */
+.perspective-1000 {
+  perspective: 1000px;
 }
 
-@keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+.transform-style-3d {
+  transform-style: preserve-3d;
 }
 
-/* Fade in smooth */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Bloom Transition */
+@keyframes bloomPop {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.5;
+  }
+  60% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-bloom {
+  animation: bloomPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Firefly Pulsing Glow */
+@keyframes fireflyPulse {
+  0%, 100% {
+    transform: scale(0.9) translateY(0);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 6px rgba(255, 225, 125, 0.6));
+  }
+  50% {
+    transform: scale(1.15) translateY(-8px);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(255, 225, 125, 0.95));
+  }
+}
+
+.animate-firefly {
+  animation: fireflyPulse 3s ease-in-out infinite;
+}
+
+/* Breathing Glow */
+@keyframes breathingGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(201, 130, 155, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(201, 130, 155, 0.6);
+  }
+}
+
+.animate-breathing {
+  animation: breathingGlow 2.5s ease-in-out infinite;
+}
+
+/* Soft Fade In */
 .animate-fade-in {
-  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .floating-petals-container {
+    display: none !important;
+  }
 }

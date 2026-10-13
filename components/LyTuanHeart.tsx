@@ -289,13 +289,13 @@ const LyTuanHeart: React.FC<LyTuanHeartProps> = ({ onBack }) => {
         }`}
       >
         <span className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold text-rose-300/80 mb-1.5 sm:mb-2 drop-shadow">
-          ★ CODE TRÁI TIM LÝ TUÂN ★
+          ★ GÓC BÍ MẬT • TRÁI TIM LÝ TUÂN ★
         </span>
-        <h1 className="font-serif text-2xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_0_25px_rgba(244,63,94,0.6)] mb-2">
-          Happy 20.10
+        <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_0_25px_rgba(244,63,94,0.6)] mb-2">
+          Happy 20.10 🌸
         </h1>
-        <p className="font-serif italic text-xs sm:text-xl text-rose-200/90 drop-shadow max-w-xs sm:max-w-sm mb-6 sm:mb-8">
-          "Chúc em luôn rạng rỡ và nhận được những điều dễ thương nhất."
+        <p className="font-serif italic text-sm sm:text-xl text-rose-200/90 drop-shadow max-w-xs sm:max-w-md mb-6 sm:mb-8 leading-relaxed">
+          "Chúc em luôn rạng rỡ, an yên và gặp được những điều ngọt ngào nhất."
         </p>
       </div>
 
@@ -303,9 +303,9 @@ const LyTuanHeart: React.FC<LyTuanHeartProps> = ({ onBack }) => {
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         <button
           onClick={onBack}
-          className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md rounded-xl sm:rounded-2xl border border-white/20 text-xs sm:text-sm font-semibold transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
+          className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md rounded-xl sm:rounded-2xl border border-white/20 text-xs sm:text-sm font-semibold transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
         >
-          <span>Quay lại chiếc vé 🎟️</span>
+          <span>Quay lại khu vườn 🌸</span>
         </button>
       </div>
     </div>
