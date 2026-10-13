@@ -91,7 +91,10 @@ export const GiftBox3D: React.FC<GiftBox3DProps> = ({
 
       {/* Blessing Note Card if opened */}
       {openedId && (
-        <div className="mt-6 w-full max-w-md p-5 rounded-2xl bg-[#FFFDF9] border border-[#C9829B]/30 shadow-md text-center animate-fade-in">
+        <div
+          id="gift-blessing-section"
+          className="mt-6 w-full max-w-md p-5 rounded-2xl bg-[#FFFDF9] border border-[#C9829B]/30 shadow-md text-center animate-fade-in scroll-mt-20"
+        >
           <span className="text-xs font-semibold text-[#C9829B] uppercase tracking-wider">
             Lời chúc đặc biệt dành riêng cho em
           </span>

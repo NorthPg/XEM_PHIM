@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BaseScreenProps, GiftBoxOption } from '../../types/garden';
-import { GARDEN_PHOTOS } from '../../constants/gardenData';
+import { GARDEN_PHOTOS, GIFT_BOX_OPTIONS } from '../../constants/gardenData';
 import GiftBox3D from '../widgets/GiftBox3D';
 import PrimaryButton from '../common/PrimaryButton';
 
@@ -15,13 +15,31 @@ export const Screen6GiftBox: React.FC<Screen6GiftBoxProps> = ({
   onGiftBoxSelected,
   selectedBoxId: externalSelectedBoxId,
 }) => {
-  const [chosenBox, setChosenBox] = useState<GiftBoxOption | null>(null);
+  const [chosenBox, setChosenBox] = useState<GiftBoxOption | null>(() => {
+    if (externalSelectedBoxId) {
+      return GIFT_BOX_OPTIONS.find((b) => b.id === externalSelectedBoxId) || null;
+    }
+    return null;
+  });
   const photo5 = GARDEN_PHOTOS[4]; // Hero Photo 5
 
   const handleSelect = (box: GiftBoxOption) => {
     setChosenBox(box);
     if (onGiftBoxSelected) onGiftBoxSelected(box.id);
   };
+
+  useEffect(() => {
+    if (chosenBox) {
+      // Smoothly scroll down to the revealed blessing note & Photo 5
+      const timer = setTimeout(() => {
+        const el = document.getElementById('gift-blessing-section');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [chosenBox]);
 
   return (
     <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-6 animate-fade-in">
