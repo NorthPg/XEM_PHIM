@@ -24,16 +24,16 @@ export const Screen5Puzzle: React.FC<Screen5PuzzleProps> = ({
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-6 animate-fade-in">
+    <div className="w-full max-w-lg md:max-w-2xl mx-auto flex flex-col items-center text-center px-4 py-6 md:py-10 animate-fade-in">
       {/* Badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B7C9AE]/40 border border-[#B7C9AE] text-xs font-semibold text-[#3D5A2E] tracking-wider uppercase mb-3">
+      <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#B7C9AE]/40 border border-[#B7C9AE] text-xs font-semibold text-[#3D5A2E] tracking-wider uppercase mb-3">
         <span>🧩</span> Mini-Game 3 • Mảnh Ghép Hoàn Mỹ
       </div>
 
-      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#51433F]">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#51433F]">
         Ghép Đóa Hoa Hoàn Hảo
       </h2>
-      <p className="text-xs sm:text-sm text-[#51433F]/75 mt-1 max-w-xs sm:max-w-sm">
+      <p className="text-xs sm:text-sm md:text-base text-[#51433F]/75 mt-1 max-w-xs sm:max-w-md">
         Chạm chọn một mảnh rồi chạm ô khác để hoán đổi vị trí. Khi 4 mảnh ghép khớp nhau, bí mật thứ tư sẽ hé mở!
       </p>
 
@@ -44,19 +44,19 @@ export const Screen5Puzzle: React.FC<Screen5PuzzleProps> = ({
 
       {/* Completion Banner & Unlocked Photo 4 */}
       {isFinished && (
-        <div className="w-full max-w-md p-5 rounded-2xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/90 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-lg animate-fade-in flex flex-col items-center mt-3">
+        <div className="w-full max-w-md md:max-w-lg p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/90 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-lg animate-fade-in flex flex-col items-center mt-5">
           <span className="text-3xl animate-bounce">🎓✨</span>
-          <h3 className="font-serif text-lg font-bold text-[#51433F] mt-1">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#51433F] mt-1">
             Mở khóa thành công: {photo4.title}!
           </h3>
-          <p className="text-xs text-[#C9829B] font-medium mt-0.5">
+          <p className="text-xs sm:text-sm text-[#C9829B] font-medium mt-0.5">
             "{photo4.note}"
           </p>
 
           {/* Photo 4 Preview Card */}
           <div
             onClick={() => onOpenLightbox && onOpenLightbox(3)}
-            className="my-4 p-2.5 bg-white rounded-xl shadow-md border border-[#C9829B]/30 cursor-pointer max-w-xs w-full flex items-center gap-3 hover:scale-102 transition-transform"
+            className="my-4 p-3 bg-white rounded-2xl shadow-md border border-[#C9829B]/30 cursor-pointer max-w-xs sm:max-w-sm w-full flex items-center gap-3.5 hover:scale-102 transition-transform"
           >
             <img
               src={photo4.fileName}

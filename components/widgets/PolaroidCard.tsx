@@ -15,7 +15,7 @@ export const PolaroidCard: React.FC<PolaroidCardProps> = ({
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div className={`relative max-w-xs sm:max-w-sm w-full mx-auto perspective-1000 ${className}`}>
+    <div className={`relative max-w-xs sm:max-w-sm w-full mx-auto perspective-1000 transition-transform duration-300 hover:-translate-y-1 ${className}`}>
       {/* Washi Tape Accent */}
       <div className="washi-tape" aria-hidden="true" />
 

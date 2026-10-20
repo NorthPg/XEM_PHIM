@@ -30,13 +30,12 @@ body {
   background: #ffffff;
   padding: 14px 14px 24px 14px;
   box-shadow: 0 16px 36px -8px rgba(81, 67, 63, 0.15), 0 4px 12px rgba(81, 67, 63, 0.05);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   border-radius: 4px;
 }
 
 .polaroid-frame:hover {
-  transform: translateY(-4px) rotate(0.5deg);
   box-shadow: 0 22px 42px -10px rgba(201, 130, 155, 0.25);
 }
 

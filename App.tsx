@@ -112,11 +112,11 @@ export const App: React.FC = () => {
     <div className="relative min-h-screen flex flex-col bg-[#FFF9F1] text-[#51433F] overflow-x-hidden selection:bg-[#C9829B] selection:text-white">
       {/* Ambient background glows for magical garden atmosphere */}
       <div
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-b from-[#F5DDE5]/40 via-[#FFEBF0]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] lg:w-[1100px] h-[400px] lg:h-[550px] bg-gradient-to-b from-[#F5DDE5]/40 via-[#FFEBF0]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div
-        className="fixed bottom-0 right-0 w-[500px] h-[350px] bg-gradient-to-t from-[#B7C9AE]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
+        className="fixed bottom-0 right-0 w-[500px] lg:w-[800px] h-[350px] lg:h-[500px] bg-gradient-to-t from-[#B7C9AE]/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10"
         aria-hidden="true"
       />
 
@@ -135,7 +135,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Content Area: 7 Screens */}
-      <main className="flex-1 flex flex-col items-center justify-center py-6 px-3 sm:px-4 max-w-4xl mx-auto w-full">
+      <main className="flex-1 flex flex-col items-center justify-center py-6 md:py-10 px-3 sm:px-6 md:px-8 max-w-5xl xl:max-w-6xl mx-auto w-full transition-all">
         {currentStep === 1 && (
           <Screen1Gate
             onNext={nextStep}

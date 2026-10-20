@@ -48,16 +48,16 @@ export const Screen2Flowers: React.FC<Screen2FlowersProps> = ({
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-6 animate-fade-in">
+    <div className="w-full max-w-lg md:max-w-2xl mx-auto flex flex-col items-center text-center px-4 py-6 md:py-10 animate-fade-in">
       {/* Header Badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5DDE5]/60 border border-[#C9829B]/20 text-xs font-semibold text-[#C9829B] tracking-wider uppercase mb-3">
+      <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F5DDE5]/60 border border-[#C9829B]/20 text-xs font-semibold text-[#C9829B] tracking-wider uppercase mb-3">
         <span>🌸</span> Mini-Game 1 • Đánh Thức Nụ Hoa
       </div>
 
-      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#51433F]">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#51433F]">
         Ba Đóa Hoa Đang Ngủ Say
       </h2>
-      <p className="text-xs sm:text-sm text-[#51433F]/75 mt-1 max-w-xs sm:max-w-sm">
+      <p className="text-xs sm:text-sm md:text-base text-[#51433F]/75 mt-1 max-w-xs sm:max-w-md">
         Sáng sớm trong vườn, có 3 nụ hoa vẫn còn ngái ngủ. Em hãy chạm nhẹ vào từng nụ hoa để đánh thức chúng nhé!
       </p>
 
@@ -70,7 +70,7 @@ export const Screen2Flowers: React.FC<Screen2FlowersProps> = ({
       </div>
 
       {/* Flower Bed: 3 Flowers */}
-      <div className="w-full py-4 px-2 my-2 rounded-3xl bg-white/40 border border-[#B7C9AE]/40 backdrop-blur-xs flex items-center justify-around gap-2 shadow-sm">
+      <div className="w-full py-5 md:py-8 px-3 md:px-8 my-4 rounded-3xl bg-white/50 border border-[#B7C9AE]/50 backdrop-blur-xs flex items-center justify-around gap-3 md:gap-8 shadow-sm">
         {FLOWER_NAMES.map((name, i) => (
           <SleepingFlower
             key={i}
@@ -84,12 +84,12 @@ export const Screen2Flowers: React.FC<Screen2FlowersProps> = ({
 
       {/* Completion Banner */}
       {isCompleted ? (
-        <div className="w-full max-w-md p-4 my-5 rounded-2xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/80 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-md animate-fade-in flex flex-col items-center">
+        <div className="w-full max-w-md md:max-w-lg p-5 md:p-6 my-6 rounded-3xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/80 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-md animate-fade-in flex flex-col items-center">
           <span className="text-3xl animate-bounce">🎉</span>
-          <h3 className="font-serif text-lg font-bold text-[#51433F] mt-1">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#51433F] mt-1">
             Khu vườn đã nở rộ tuyệt đẹp!
           </h3>
-          <p className="text-xs text-[#C9829B] font-medium mt-0.5">
+          <p className="text-xs sm:text-sm text-[#C9829B] font-medium mt-0.5">
             Phần thưởng đầu tiên: Một bức ảnh rất xinh đã được mở khóa!
           </p>
           <PrimaryButton

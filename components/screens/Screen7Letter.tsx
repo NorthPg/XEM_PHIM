@@ -20,23 +20,23 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
   const heroPhoto = GARDEN_PHOTOS[4]; // Photo 5
 
   return (
-    <div className="w-full max-w-xl mx-auto flex flex-col items-center text-center px-4 py-8 animate-fade-in space-y-8">
+    <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col items-center text-center px-4 py-8 md:py-12 animate-fade-in space-y-10">
       {/* Top Header Badge */}
       <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#F5DDE5]/80 border border-[#C9829B]/40 text-xs font-semibold text-[#C9829B] tracking-wider uppercase">
         <span>🌷</span> 20 • 10 • HAPPY VIETNAMESE WOMEN'S DAY
       </div>
 
       <div className="space-y-1">
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#51433F]">
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#51433F]">
           Món Quà Hoàn Chỉnh Dành Cho Em
         </h2>
-        <p className="font-serif italic text-base sm:text-lg text-[#C9829B]">
+        <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#C9829B]">
           Khu vườn nhỏ đã nở trọn vẹn 5 sắc hoa ✨
         </p>
       </div>
 
       {/* HERO PHOTO 5 SHOWCASE */}
-      <div className="w-full max-w-sm mx-auto p-4 rounded-3xl bg-white shadow-xl border-2 border-[#C9829B]/30 relative group">
+      <div className="w-full max-w-sm md:max-w-md mx-auto p-4 md:p-6 rounded-3xl bg-white shadow-xl border-2 border-[#C9829B]/30 relative group">
         <div className="washi-tape" />
         <span className="text-[11px] font-bold text-[#C9829B] uppercase tracking-wider block mb-2">
           {heroPhoto.badge}
@@ -60,13 +60,13 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
             </span>
           </div>
         </div>
-        <p className="font-handwriting text-2xl text-[#C9829B] mt-3">
+        <p className="font-handwriting text-2xl md:text-3xl text-[#C9829B] mt-3">
           "{heroPhoto.note}"
         </p>
       </div>
 
       {/* WAX-SEALED LETTER CARD */}
-      <div className="w-full rounded-3xl bg-[#FFFDF9] border-2 border-[#C9829B]/30 shadow-2xl p-6 sm:p-8 text-left relative overflow-hidden">
+      <div className="w-full max-w-2xl lg:max-w-3xl mx-auto rounded-3xl bg-[#FFFDF9] border-2 border-[#C9829B]/30 shadow-2xl p-6 sm:p-8 md:p-10 text-left relative overflow-hidden">
         {/* Decorative corner ribbons */}
         <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#F5DDE5] to-transparent pointer-events-none" />
 
@@ -74,13 +74,13 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
         <div className="flex items-center justify-between pb-4 border-b border-[#C9829B]/20">
           <div className="flex items-center gap-2">
             <span className="text-2xl">💌</span>
-            <span className="font-serif font-bold text-lg text-[#51433F]">
+            <span className="font-serif font-bold text-lg sm:text-xl text-[#51433F]">
               Bức Thư Chúc Mừng 20/10
             </span>
           </div>
           <button
             onClick={() => setIsLetterOpen(!isLetterOpen)}
-            className="text-xs px-3 py-1 rounded-full bg-[#F5DDE5]/60 hover:bg-[#F5DDE5] text-[#51433F] transition-all cursor-pointer"
+            className="text-xs sm:text-sm px-3.5 py-1 rounded-full bg-[#F5DDE5]/60 hover:bg-[#F5DDE5] text-[#51433F] transition-all cursor-pointer font-medium"
           >
             {isLetterOpen ? 'Thu gọn thư ∧' : 'Đọc bức thư ∨'}
           </button>
@@ -88,22 +88,22 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
 
         {/* Letter Body */}
         {isLetterOpen && (
-          <div className="mt-6 space-y-4 text-sm sm:text-base text-[#51433F] leading-relaxed animate-fade-in font-sans">
-            <h3 className="font-serif font-bold text-xl text-[#C9829B]">
+          <div className="mt-6 space-y-4 text-sm sm:text-base md:text-lg text-[#51433F] leading-relaxed animate-fade-in font-sans">
+            <h3 className="font-serif font-bold text-xl md:text-2xl text-[#C9829B]">
               {FINAL_LETTER_CONTENT.salutation}
             </h3>
 
             {FINAL_LETTER_CONTENT.paragraphs.map((p, idx) => (
-              <p key={idx} className="whitespace-pre-line text-[#51433F]/90">
+              <p key={idx} className="whitespace-pre-line text-[#51433F]/90 leading-relaxed">
                 {p}
               </p>
             ))}
 
-            <div className="pt-4 border-t border-[#C9829B]/20 text-center sm:text-right space-y-1">
-              <p className="font-serif font-semibold text-base text-[#C9829B]">
+            <div className="pt-5 border-t border-[#C9829B]/20 text-center sm:text-right space-y-1">
+              <p className="font-serif font-semibold text-base sm:text-lg text-[#C9829B]">
                 {FINAL_LETTER_CONTENT.closing}
               </p>
-              <p className="font-handwriting text-xl text-[#51433F]/80">
+              <p className="font-handwriting text-2xl md:text-3xl text-[#51433F]/85">
                 {FINAL_LETTER_CONTENT.signature}
               </p>
             </div>
@@ -112,23 +112,23 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
       </div>
 
       {/* FULL 5-PHOTO ALBUM GALLERY */}
-      <div className="w-full pt-4 space-y-5">
+      <div className="w-full pt-6 space-y-6">
         <div className="text-center">
           <span className="text-xs font-semibold text-[#C9829B] tracking-wider uppercase">
             Album Kỷ Niệm 5 Bông Hoa
           </span>
-          <h3 className="font-serif text-2xl font-bold text-[#51433F] mt-1">
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#51433F] mt-1">
             Góc Lưu Giữ Những Nụ Cười
           </h3>
-          <p className="text-xs text-[#51433F]/60 mt-0.5">
+          <p className="text-xs sm:text-sm text-[#51433F]/60 mt-0.5">
             Chạm vào bất kỳ ảnh nào để xem phóng to chi tiết
           </p>
         </div>
 
         {/* 5-Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center max-w-5xl mx-auto w-full">
           {GARDEN_PHOTOS.map((photo, index) => (
-            <div key={photo.id} className="flex justify-center">
+            <div key={photo.id} className="flex justify-center w-full">
               <PolaroidCard
                 photo={photo}
                 onOpenLightbox={() => onOpenLightbox && onOpenLightbox(index)}
@@ -140,14 +140,14 @@ export const Screen7Letter: React.FC<Screen7LetterProps> = ({
 
       {/* SECRET EASTER EGG: RẠP CHIẾU PHIM & ACOUSTIC (BEFORE LY TUAN HEART) */}
       {(onOpenSecretCinema || onOpenSecretHeart) && (
-        <div className="w-full max-w-md mx-auto p-5 rounded-3xl bg-gradient-to-r from-[#2A1622] via-[#3B1C2E] to-[#20101A] border-2 border-[#C9829B]/40 shadow-xl flex flex-col items-center text-center animate-breathing my-4">
+        <div className="w-full max-w-md md:max-w-xl mx-auto p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#2A1622] via-[#3B1C2E] to-[#20101A] border-2 border-[#C9829B]/40 shadow-xl flex flex-col items-center text-center animate-breathing my-6">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-[#FFE17D] tracking-wider uppercase mb-1">
             <span>✨</span> MÓN QUÀ BÍ MẬT DÀNH RIÊNG CHO EM <span>✨</span>
           </div>
-          <h4 className="font-serif text-lg font-bold text-white mt-1">
+          <h4 className="font-serif text-lg sm:text-xl font-bold text-white mt-1">
             Góc Chiếu Phim & Bản Acoustic Bí Mật
           </h4>
-          <p className="text-xs text-rose-200/80 mt-1 max-w-xs leading-relaxed">
+          <p className="text-xs sm:text-sm text-rose-200/80 mt-1 max-w-sm leading-relaxed">
             Một tấm vé đặc biệt đưa em đến rạp phim Lofi ấm cúng cùng giai điệu tiếng đàn mộc mạc...
           </p>
           <button

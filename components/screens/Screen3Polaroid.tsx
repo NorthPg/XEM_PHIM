@@ -11,16 +11,16 @@ export const Screen3Polaroid: React.FC<BaseScreenProps> = ({
   const photo1 = GARDEN_PHOTOS[0];
 
   return (
-    <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-6 animate-fade-in">
+    <div className="w-full max-w-lg md:max-w-2xl mx-auto flex flex-col items-center text-center px-4 py-6 md:py-10 animate-fade-in">
       {/* Badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5DDE5]/60 border border-[#C9829B]/20 text-xs font-semibold text-[#C9829B] tracking-wider uppercase mb-3">
+      <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F5DDE5]/60 border border-[#C9829B]/20 text-xs font-semibold text-[#C9829B] tracking-wider uppercase mb-3">
         <span>✨</span> Phần Thưởng 01 • Bức Ảnh Đầu Tiên
       </div>
 
-      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#51433F]">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#51433F]">
         {photo1.title}
       </h2>
-      <p className="text-xs sm:text-sm text-[#51433F]/75 mt-1 max-w-xs">
+      <p className="text-xs sm:text-sm md:text-base text-[#51433F]/75 mt-1 max-w-xs sm:max-w-sm">
         Bông hoa rực rỡ nhất trong khu vườn sáng nay...
       </p>
 
@@ -33,11 +33,11 @@ export const Screen3Polaroid: React.FC<BaseScreenProps> = ({
       </div>
 
       {/* Poetic description */}
-      <div className="max-w-sm mx-auto p-4 rounded-2xl bg-white/60 border border-[#C9829B]/20 shadow-xs mb-6">
-        <p className="font-handwriting text-xl text-[#C9829B] leading-snug">
+      <div className="max-w-sm sm:max-w-md mx-auto p-5 rounded-2xl bg-white/70 border border-[#C9829B]/20 shadow-xs mb-6">
+        <p className="font-handwriting text-xl sm:text-2xl text-[#C9829B] leading-snug">
           "{photo1.note}"
         </p>
-        <span className="text-[11px] text-[#51433F]/60 block mt-2 font-sans">
+        <span className="text-xs text-[#51433F]/60 block mt-2 font-sans">
           Em có thể chạm vào ảnh để phóng to, hoặc lật xem mặt sau nhé!
         </span>
       </div>

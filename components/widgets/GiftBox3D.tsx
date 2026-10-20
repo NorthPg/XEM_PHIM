@@ -20,7 +20,7 @@ export const GiftBox3D: React.FC<GiftBox3DProps> = ({
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-md">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 w-full max-w-md sm:max-w-xl md:max-w-2xl">
         {GIFT_BOX_OPTIONS.map((box) => {
           const isOpened = openedId === box.id;
 
@@ -29,24 +29,24 @@ export const GiftBox3D: React.FC<GiftBox3DProps> = ({
               key={box.id}
               type="button"
               onClick={() => handleBoxClick(box)}
-              className={`relative flex flex-col items-center p-4 rounded-2xl border-2 transition-all duration-500 cursor-pointer text-center select-none ${
+              className={`relative flex flex-col items-center p-4 sm:p-5 md:p-6 rounded-2xl border-2 transition-all duration-500 cursor-pointer text-center select-none ${
                 isOpened
                   ? 'border-[#C9829B] bg-gradient-to-b from-[#FFF9F1] to-[#F5DDE5] shadow-lg scale-105'
                   : 'border-white/80 bg-white/70 hover:bg-white hover:border-[#C9829B]/40 hover:-translate-y-1 shadow-sm'
               }`}
             >
               {/* Gift Box Graphic */}
-              <div className="relative w-20 h-20 mb-3 flex items-center justify-center">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 flex items-center justify-center">
                 {isOpened ? (
                   <div className="relative animate-bounce">
-                    <span className="text-5xl">🎁</span>
+                    <span className="text-5xl sm:text-6xl">🎁</span>
                     <span className="absolute -top-2 -right-2 text-xl animate-ping">✨</span>
                   </div>
                 ) : (
                   <div className="relative group-hover:scale-110 transition-transform">
                     {/* Box Icon with Ribbons */}
                     <div
-                      className={`w-16 h-16 rounded-xl border-2 flex items-center justify-center shadow-md bg-gradient-to-br ${box.boxColor}`}
+                      className={`w-16 h-16 sm:w-18 sm:h-18 rounded-xl border-2 flex items-center justify-center shadow-md bg-gradient-to-br ${box.boxColor}`}
                     >
                       {/* Ribbon Cross */}
                       <div
@@ -58,28 +58,28 @@ export const GiftBox3D: React.FC<GiftBox3DProps> = ({
                         style={{ backgroundColor: box.ribbonColor, opacity: 0.85 }}
                       />
                       {/* Bow on Top */}
-                      <div className="absolute -top-2 text-base">🎀</div>
+                      <div className="absolute -top-2 text-base sm:text-lg">🎀</div>
                     </div>
                   </div>
                 )}
               </div>
 
               {/* Title & Tag */}
-              <h4 className="font-serif font-bold text-sm text-[#51433F]">
+              <h4 className="font-serif font-bold text-sm sm:text-base text-[#51433F]">
                 {box.title}
               </h4>
-              <span className="text-[11px] text-[#C9829B] font-medium mt-0.5">
+              <span className="text-[11px] sm:text-xs text-[#C9829B] font-medium mt-0.5">
                 {box.tag}
               </span>
 
               {/* Status Indicator */}
               <div className="mt-3">
                 {isOpened ? (
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-[#C9829B] text-white font-medium shadow-xs">
+                  <span className="text-xs px-3 py-1 rounded-full bg-[#C9829B] text-white font-medium shadow-xs">
                     Đã mở hộp ✨
                   </span>
                 ) : (
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-[#F5DDE5]/60 text-[#51433F] group-hover:bg-[#F5DDE5]">
+                  <span className="text-xs px-3 py-1 rounded-full bg-[#F5DDE5]/60 text-[#51433F] group-hover:bg-[#F5DDE5]">
                     Chạm để mở
                   </span>
                 )}
@@ -93,15 +93,15 @@ export const GiftBox3D: React.FC<GiftBox3DProps> = ({
       {openedId && (
         <div
           id="gift-blessing-section"
-          className="mt-6 w-full max-w-md p-5 rounded-2xl bg-[#FFFDF9] border border-[#C9829B]/30 shadow-md text-center animate-fade-in scroll-mt-20"
+          className="mt-6 w-full max-w-md sm:max-w-xl md:max-w-2xl p-5 sm:p-6 md:p-8 rounded-3xl bg-[#FFFDF9] border-2 border-[#C9829B]/30 shadow-md text-center animate-fade-in scroll-mt-20"
         >
-          <span className="text-xs font-semibold text-[#C9829B] uppercase tracking-wider">
+          <span className="text-xs sm:text-sm font-semibold text-[#C9829B] uppercase tracking-wider">
             Lời chúc đặc biệt dành riêng cho em
           </span>
-          <p className="font-handwriting text-2xl text-[#51433F] leading-snug mt-2">
+          <p className="font-handwriting text-2xl sm:text-3xl text-[#51433F] leading-snug mt-2">
             "{GIFT_BOX_OPTIONS.find((b) => b.id === openedId)?.blessingMessage}"
           </p>
-          <span className="text-[11px] text-[#51433F]/60 block mt-2 font-sans">
+          <span className="text-xs text-[#51433F]/60 block mt-2 font-sans">
             Món quà cuối cùng và bức thư chúc mừng 20/10 đã sẵn sàng! 🌸
           </span>
         </div>

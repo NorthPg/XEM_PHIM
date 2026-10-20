@@ -60,23 +60,23 @@ export const Screen4Fireflies: React.FC<Screen4FirefliesProps> = ({
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto flex flex-col items-center text-center px-4 py-6 animate-fade-in">
+    <div className="w-full max-w-lg md:max-w-2xl mx-auto flex flex-col items-center text-center px-4 py-6 md:py-10 animate-fade-in">
       {/* Badge */}
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE17D]/30 border border-[#FFE17D]/60 text-xs font-semibold text-[#8B6E16] tracking-wider uppercase mb-3">
+      <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFE17D]/30 border border-[#FFE17D]/60 text-xs font-semibold text-[#8B6E16] tracking-wider uppercase mb-3">
         <span>✨</span> Mini-Game 2 • Đom Đóm Hoàng Hôn
       </div>
 
-      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#51433F]">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#51433F]">
         Thu Thập 5 Đốm Sáng Lung Linh
       </h2>
-      <p className="text-xs sm:text-sm text-[#51433F]/75 mt-1 max-w-sm">
+      <p className="text-xs sm:text-sm md:text-base text-[#51433F]/75 mt-1 max-w-sm sm:max-w-md">
         Trời đã về chiều, khu vườn tối dần rồi... Em bắt giúp anh… à nhầm, giúp khu vườn 5 đốm sáng nhé! 🌿
       </p>
 
       {/* Interactive Meadow Area */}
-      <div className="relative w-full aspect-[4/3] my-5 rounded-3xl overflow-hidden bg-gradient-to-b from-[#2B1B2D] via-[#3E243A] to-[#1F1420] border-2 border-purple-900/40 shadow-xl flex items-center justify-center p-4">
+      <div className="relative w-full aspect-[4/3] md:aspect-[16/10] my-5 rounded-3xl overflow-hidden bg-gradient-to-b from-[#2B1B2D] via-[#3E243A] to-[#1F1420] border-2 border-purple-900/40 shadow-xl flex items-center justify-center p-4">
         {/* Firefly Jar in Center */}
-        <div className="z-10 scale-90 sm:scale-100">
+        <div className="z-10 scale-90 sm:scale-100 md:scale-110">
           <FireflyJar collectedCount={caughtCount} targetCount={5} />
         </div>
 
@@ -109,17 +109,17 @@ export const Screen4Fireflies: React.FC<Screen4FirefliesProps> = ({
 
       {/* Completion Banner */}
       {isCompleted ? (
-        <div className="w-full max-w-md p-5 rounded-2xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/90 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-lg animate-fade-in flex flex-col items-center">
+        <div className="w-full max-w-md md:max-w-lg p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#FFF9F1] via-[#F5DDE5]/90 to-[#FFF9F1] border-2 border-[#C9829B]/40 shadow-lg animate-fade-in flex flex-col items-center">
           <span className="text-3xl animate-bounce">🌟</span>
-          <h3 className="font-serif text-lg font-bold text-[#51433F] mt-1">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#51433F] mt-1">
             Bình đom đóm đã phát sáng rực rỡ!
           </h3>
-          <p className="text-xs text-[#C9829B] font-medium mt-0.5">
+          <p className="text-xs sm:text-sm text-[#C9829B] font-medium mt-0.5">
             Tuyệt vời! Em đã mở khóa cùng lúc 2 bức ảnh mới (#02 và #03)!
           </p>
 
           {/* 2 Unlocked Photo Previews */}
-          <div className="grid grid-cols-2 gap-3 w-full my-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full my-4">
             {[1, 2].map((idx) => {
               const photo = GARDEN_PHOTOS[idx];
               return (
