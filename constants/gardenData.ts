@@ -83,10 +83,9 @@ export const GIFT_BOX_OPTIONS: GiftBoxOption[] = [
 export const FINAL_LETTER_CONTENT = {
   salutation: "Gửi em,",
   paragraphs: [
-    "Mấy tuần vừa qua tuy chưa dài, nhưng những lần trò chuyện cùng em luôn mang lại cho anh nhiều niềm vui và những năng lượng rất tích cực. Cảm ơn em vì sự dịu dàng, những mẩu chuyện dễ thương và nụ cười luôn ấm áp ấy.",
-    "Nhân ngày Phụ nữ Việt Nam 20/10, góc vườn nhỏ này là món quà tinh thần anh dành tặng riêng cho em. Chúc em:",
+    "Nhân ngày Phụ nữ Việt Nam 20/10, góc vườn nhỏ ngập tràn sắc hoa này là món quà chân thành anh chuẩn bị dành riêng cho em. Chúc em:",
     "• Luôn luôn xinh đẹp, rạng rỡ và tự tin theo cách riêng của mình.\n• Mỗi ngày trôi qua đều có thật nhiều niềm vui nhỏ xíu và những điều ngọt ngào.\n• Luôn được nâng niu, trân trọng và an yên trong từng khoảnh khắc.",
-    "Mong rằng góc vườn nhỏ này đã mang lại cho em một nụ cười thật tươi trong ngày hôm nay!",
+    "Mong rằng góc vườn nhỏ này đã mang lại cho em những phút giây thật bình yên và một nụ cười thật tươi trong ngày hôm nay!",
   ],
   closing: "Chúc em một ngày 20/10 thật hạnh phúc và trọn vẹn nhé! ✨",
   signature: "— From someone who wishes you the best —",
